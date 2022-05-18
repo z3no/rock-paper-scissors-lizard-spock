@@ -1,3 +1,22 @@
+main {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
 
+.player {
+  width: 35%;
+  background-color: gray;
+}
+
+.displayField {
+  width: 30%;
+  background-color: lightgray;
+}
+
+.computer {
+  width: 35%;
+  background-color: gray;
+}
 
 /*# sourceMappingURL=style.css.map */
