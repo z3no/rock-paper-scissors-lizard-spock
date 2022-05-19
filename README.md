@@ -27,20 +27,20 @@ Make a Rock/Paper/Scissors/Lizard/Spock game, based on the original game "Rock/P
 ### Must have features
 ***
 - Have 5 buttons that the player can press to change their pick
-  - [ ] Rock button
-  - [ ] Paper button
-  - [ ] Scissors button
-  - [ ] Lizard button
-  - [ ] Spock button
+  - [x] Rock button
+  - [x] Paper button
+  - [x] Scissors button
+  - [x] Lizard button
+  - [x] Spock button
 - Have another button to let the computer pick one
   - [ ] Computer random choice button
 - Display the winner (no alert box!)
-  - [ ] Show who won
-  - [ ] Show if it's a draw
-  - [ ] Wins counter
+  - [x] Show who won
+  - [x] Show if it's a draw
+  - [x] Wins counter
   - [ ] Draws counter
 - Have the choice to reset the game
-  - [ ] Reset button
+  - [x] Reset button
 
 ### Nice-to-have features
 ***
