@@ -1,26 +1,10 @@
 // contains all the logic of the game
 const game = () => {
     //variables for the scoreboard and reset button
-    let playerScore = 0;
-    let tieScore = 0;
-    let computerScore = 0;
+    let playerScore = '0';
+    let tieScore = '0';
+    let computerScore = '0';
     let moves = 0;
-    const resetButton = document.getElementById('reset');
-
-    // Reset function to reset all values in the game and start over
-    function reset() {
-        playerScore = 0;
-        tieScore = 0;
-        computerScore = 0;
-        moves = 10;
-        document.getElementById('playerCount').innerText = playerScore;
-        document.getElementById('computerCount').innerText = computerScore;
-        document.getElementById('movesLeft').innerText = `Moves left: ${moves}`;
-        document.getElementById('playersChoice').innerText = "";
-        document.getElementById('randomChoice').innerText = "";
-    }
-
-    resetButton.addEventListener('click', reset);
 
     //A play function that starts the game once the player chooses one of its options
     function play() {
@@ -30,9 +14,8 @@ const game = () => {
         const scissorsButton = document.getElementById('scissors');
         const lizardButton = document.getElementById('lizard');
         const spockButton = document.getElementById('spock');
-        const playersChoices = [rockButton, paperButton, scissorsButton, lizardButton, spockButton];
 
-        const computerButton = document.querySelector('.random');
+        const playersChoices = [rockButton, paperButton, scissorsButton, lizardButton, spockButton];
         const computersChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
         //using a forEach loop to add an eventListener on all players choice buttons
@@ -49,10 +32,12 @@ const game = () => {
                 //Generating a random choice for the computer
                 const choice = computersChoices[Math.floor(Math.random() * computersChoices.length)];
                 document.getElementById('randomChoice').innerText = choice;
-                console.log(choice);
-                console.log(option);
                 //check who wins
                 winner(this.innerText, choice)
+
+                if(moves === 10) {
+                    gameOver(playersChoices, movesLeft);
+                }
             });
         })
 
@@ -128,6 +113,36 @@ const game = () => {
                     playerCounter.innerText = playerScore;
                 }
             }
+        }
+
+        const gameOver = (playersChoices, moves) => {
+            const move = document.querySelector('.moves');
+            const result = document.getElementById('result');
+            const reloadbtn = document.getElementById('reset');
+            const displayPlayersChoice = document.getElementById('playersChoice');
+
+            playersChoices.forEach(choice => {
+                choice.style.display = 'none';
+                displayPlayersChoice.innerText = '';
+            })
+
+            move.innerText = `Game Over!`;
+            moves.style.display = 'none';
+
+            if (playerScore > computerScore) {
+                result.innerText = `You won the game!`
+            }
+            else if (playerScore < computerScore) {
+                result.innerText = `You lost the game!`
+            }
+            else {
+                result.innerText = `It's a tie!`
+            }
+
+            reloadbtn.innerText = 'Restart';
+            reloadbtn.addEventListener('click', () => {
+                window.location.reload();
+            })
         }
     }
     //call the play function in the game function so it starts the function
