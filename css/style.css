@@ -1,7 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap");
+#reset {
+  display: none;
+}
+
+html {
+  font-size: 62, 5%;
+  /* 62.5% of the base size of 16px = 10px. */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto Flex", sans-serif;
+}
+
 main {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
+  text-transform: uppercase;
+  text-align: center;
+}
+main h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 0.6rem;
+}
+main h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+main h3 {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 0px;
 }
 
 .player {
