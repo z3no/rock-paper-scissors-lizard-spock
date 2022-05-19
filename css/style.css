@@ -13,6 +13,11 @@ main {
   width: 30%;
   background-color: lightgray;
 }
+.displayField .score {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
 .computer {
   width: 35%;
