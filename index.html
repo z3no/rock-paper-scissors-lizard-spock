@@ -11,20 +11,36 @@
 
 <body>
     <main>
-        <div class="player">
-            <button id="reset">Reset</button>
+        <section class="player">
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
             <button id="lizard">Lizard</button>
             <button id="spock">Spock</button>
-        </div>
-        <div class="displayField">
-            Display field
-        </div>
-        <div class="computer">
+        </section>
+        <section class="displayField">
+            <h1>Scoreboard</h1>
+            <div class="score">
+                <div class="playerScore">
+                    <h2>Player</h2>
+                    <p id="playerCount">0</p>
+                </div>
+                <div class="computerScore">
+                    <h2>Computer</h2>
+                    <p id="computerCount">0</p>
+                </div>
+            </div>
+            <div class="result">
+                <h1 id="result"></h1>
+            </div>
+            <div class="reset">
+                <button id="reset">Reset</button>
+            </div>
+        </section>
+        <section class="computer">
+            <h2 id="randomChoice"></h2>
             <button id="random">Let me choose!</button>
-        </div>
+        </section>
     </main>
 </body>
 
