@@ -1,9 +1,43 @@
+@import "fonts";
 @import "buttons";
+html {
+  font-size: 62,5%;
+  /* 62.5% of the base size of 16px = 10px. */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto Flex', sans-serif;
+  //reset 10*1.6 = 16px
+}
 
 main {
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 70vh;
+  text-transform: uppercase;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 0.6rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-top: 0px;
+  }
 }
 
 .player {
