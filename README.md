@@ -38,7 +38,7 @@ Make a Rock/Paper/Scissors/Lizard/Spock game, based on the original game "Rock/P
   - [x] Show who won
   - [x] Show if it's a draw
   - [x] Wins counter
-  - [ ] Draws counter
+  - [x] Tie counter
 - Have the choice to reset the game
   - [x] Reset button
 
