@@ -13,34 +13,39 @@
     <main>
         <section id="playerOptions">
             <h2 id="playersChoice"></h2>
-            <button class="rock">rock</button>
-            <button class="paper">paper</button>
-            <button class="scissors">scissors</button>
-            <button class="lizard">lizard</button>
-            <button class="spock">spock</button>
+            <button id="rock">rock</button>
+            <button id="paper">paper</button>
+            <button id="scissors">scissors</button>
+            <button id="lizard">lizard</button>
+            <button id="spock">spock</button>
         </section>
         <section class="displayField">
             <h1>Scoreboard</h1>
             <div class="score">
                 <div class="playerScore">
                     <h2>Player</h2>
-                    <p class="playerCount">0</p>
+                    <p id="playerCount">0</p>
+                </div>
+                <div class="tie">
+                    <h2>Tie</h2>
+                    <p id="tieCount">0</p>
                 </div>
                 <div class="computerScore">
                     <h2>Computer</h2>
-                    <p class="computerCount">0</p>
+                    <p id="computerCount">0</p>
                 </div>
             </div>
-            <div class="movesLeft">Moves left: 10</div>
-            <div class="result">
+            <div id="movesLeft">Moves left: 10</div>
+            <div id="result">
 
             </div>
             <div class="reset">
-                <button class="reset">Reset</button>
+                <button id="reset">Reset</button>
             </div>
         </section>
         <section class="computer">
-            <h2 class="randomChoice"></h2>
+            <h2 id="randomChoice"></h2>
+            <button class="random">Let me choose!</button>
         </section>
     </main>
 </body>
