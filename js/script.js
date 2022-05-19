@@ -2,6 +2,7 @@
 const game = () => {
     //variables for the scoreboard and reset button
     let playerScore = 0;
+    let tieScore = 0;
     let computerScore = 0;
     let moves = 0;
     const resetButton = document.getElementById('reset');
@@ -9,11 +10,14 @@ const game = () => {
     // Reset function to reset all values in the game and start over
     function reset() {
         playerScore = 0;
+        tieScore = 0;
         computerScore = 0;
         moves = 10;
         document.getElementById('playerCount').innerText = playerScore;
         document.getElementById('computerCount').innerText = computerScore;
         document.getElementById('movesLeft').innerText = `Moves left: ${moves}`;
+        document.getElementById('playersChoice').innerText = "";
+        document.getElementById('randomChoice').innerText = "";
     }
 
     resetButton.addEventListener('click', reset);
@@ -56,10 +60,13 @@ const game = () => {
         const winner = (player, computer) => {
             const result = document.getElementById('result');
             const playerCounter = document.getElementById('playerCount');
+            const tieCounter = document.getElementById('tieCount');
             const computerCounter = document.getElementById('computerCount');
             // if they are identical, show it's a tie
             if (player === computer){
                 result.innerText = `It's a tie!`;
+                tieScore++;
+                tieCounter.innerText = tieScore;
             }
             //else if the player chooses rock and the computer has paper or spock the player will lose and the computer gets a point, else the player gets a point
             else if (player === 'rock'){
