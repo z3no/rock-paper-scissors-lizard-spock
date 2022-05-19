@@ -4,16 +4,16 @@ const game = () => {
     let playerScore = 0;
     let computerScore = 0;
     let moves = 0;
-    const resetButton = document.querySelector('.reset');
+    const resetButton = document.getElementById('reset');
 
     // Reset function to reset all values in the game and start over
     function reset() {
         playerScore = 0;
         computerScore = 0;
         moves = 10;
-        document.querySelector('.playerCount').textContent = playerScore;
-        document.querySelector('.computerCount').textContent = computerScore;
-        document.querySelector('.movesLeft').textContent = `Moves left: ${moves}`;
+        document.getElementById('playerCount').innerText = playerScore;
+        document.getElementById('computerCount').innerText = computerScore;
+        document.getElementById('movesLeft').innerText = `Moves left: ${moves}`;
     }
 
     resetButton.addEventListener('click', reset);
@@ -21,25 +21,30 @@ const game = () => {
     //A play function that starts the game once the player chooses one of its options
     function play() {
 
-        const rockButton = document.querySelector('.rock');
-        const paperButton = document.querySelector('.paper');
-        const scissorsButton = document.querySelector('.scissors');
-        const lizardButton = document.querySelector('.lizard');
-        const spockButton = document.querySelector('.spock');
+        const rockButton = document.getElementById('rock');
+        const paperButton = document.getElementById('paper');
+        const scissorsButton = document.getElementById('scissors');
+        const lizardButton = document.getElementById('lizard');
+        const spockButton = document.getElementById('spock');
         const playersChoices = [rockButton, paperButton, scissorsButton, lizardButton, spockButton];
+
+        const computerButton = document.querySelector('.random');
         const computersChoices = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
 
         //using a forEach loop to add an eventListener on all players choice buttons
         playersChoices.forEach(option => {
             option.addEventListener('click', function (){
+                //Show the players choice
+                const displayPlayersChoice = document.getElementById('playersChoice');
+                displayPlayersChoice.innerText = option.innerText;
                 //incrementing the amount of moves and later subtracting it from the total moves you have
-                const movesLeft = document.querySelector('.movesLeft');
+                const movesLeft = document.getElementById('movesLeft')
                 moves++;
                 movesLeft.innerText = `Moves left ${10 - moves}`;
 
                 //Generating a random choice for the computer
                 const choice = computersChoices[Math.floor(Math.random() * computersChoices.length)];
-                document.querySelector('.randomChoice').textContent = choice;
+                document.getElementById('randomChoice').innerText = choice;
                 console.log(choice);
                 console.log(option);
                 //check who wins
@@ -49,71 +54,71 @@ const game = () => {
 
         // Function to decide who will be the winner
         const winner = (player, computer) => {
-            const result = document.querySelector('.result');
-            const playerCounter = document.querySelector('.playerCount');
-            const computerCounter = document.querySelector('.computerCount');
+            const result = document.getElementById('result');
+            const playerCounter = document.getElementById('playerCount');
+            const computerCounter = document.getElementById('computerCount');
             // if they are identical, show it's a tie
             if (player === computer){
-                result.textContent = `It's a tie!`;
+                result.innerText = `It's a tie!`;
             }
             //else if the player chooses rock and the computer has paper or spock the player will lose and the computer gets a point, else the player gets a point
             else if (player === 'rock'){
                 if (computer === 'paper' || computer === 'spock'){
-                    result.textContent = `Computer wins!`;
+                    result.innerText = `Computer wins!`;
                     computerScore++;
-                    computerCounter.textContent = computerScore;
+                    computerCounter.innerText = computerScore;
                 } else {
-                    result.textContent = 'Player wins!';
+                    result.innerText = 'Player wins!';
                     playerScore++;
-                    playerCounter.textContent = playerScore;
+                    playerCounter.innerText = playerScore;
                 }
             }
             //else if the player chooses paper and the computer has scissors or lizard the player will lose and the computer gets a point, else the player gets a point
             else if (player === 'paper') {
                 if (computer === 'scissors' || computer === 'lizard'){
-                    result.textContent = `Computer wins!`;
+                    result.innerText = `Computer wins!`;
                     computerScore++;
-                    computerCounter.textContent = computerScore;
+                    computerCounter.innerText = computerScore;
                 } else {
-                    result.textContent = `Player wins!`;
+                    result.innerText = `Player wins!`;
                     playerScore++;
-                    playerCounter.textContent = playerScore;
+                    playerCounter.innerText = playerScore;
                 }
             }
             //else if the player chooses scissors and the computer has spock or rock the player will lose and the computer gets a point, else the player gets a point
             else if (player === 'scissors') {
                 if (computer === 'spock' || computer === 'rock'){
-                    result.textContent = `Computer wins!`;
+                    result.innerText = `Computer wins!`;
                     computerScore++;
-                    computerCounter.textContent = computerScore;
+                    computerCounter.innerText = computerScore;
                 } else {
-                    result.textContent = `Player wins!`;
+                    result.innerText = `Player wins!`;
                     playerScore++;
-                    playerCounter.textContent = playerScore;
+                    playerCounter.innerText = playerScore;
                 }
             }
             //else if the player chooses lizard and the computer has rock or scissors the player will lose and the computer gets a point, else the player gets a point
             else if (player === 'lizard') {
                 if (computer === 'rock' || computer === 'scissors'){
-                    result.textContent = `Computer wins!`;
+                    result.innerText = `Computer wins!`;
                     computerScore++;
-                    computerCounter.textContent = computerScore;
+                    computerCounter.innerText = computerScore;
                 } else {
-                    result.textContent = `Player wins!`;
+                    result.innerText = `Player wins!`;
                     playerScore++;
-                    playerCounter.textContent = playerScore;
+                    playerCounter.innerText = playerScore;
                 }
             }
             //else if the player chooses spock and the computer has lizard or paper the player will lose and the computer gets a point, else the player gets a point
             else if (player === 'spock') {
                 if (computer === 'lizard' || computer === 'paper'){
-                    result.textContent = `Computer wins!`;
+                    result.innerText = `Computer wins!`;
                     computerScore++;
-                    computerCounter.textContent = computerScore;
+                    computerCounter.innerText = computerScore;
                 } else {
-                    result.textContent = `Player wins!`;
+                    result.innerText = `Player wins!`;
                     playerScore++;
-                    playerCounter.textContent = playerScore;
+                    playerCounter.innerText = playerScore;
                 }
             }
         }
